@@ -1,15 +1,79 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Prolikes</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
+    <title>prolike</title>
+    <style type="text/css" href="./style.css"></style>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script>src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"></script>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="wrapper">
+      <nav class="light-green darken-1">
+        <div class="nav-wrapper">
+          <a href="/posts" class="brand-logo">more like! ♡ Prolike ╰(*´︶`*)╯</a>
+          <% if user_signed_in? %>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>マイページ： </li>
+            <li><a href="/users/<%= current_user.id %>"><%= current_user.name %></a></li>
+            <li><%= link_to '編集', "/users/edit" %></li>
+            <li><%= link_to '新規投稿', "/posts/new" %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          </ul>
+          <% else %>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><%= link_to 'ログイン', new_user_session_path %></li>
+            <li><%= link_to '新規登録', new_user_registration_path %></li>
+          </ul>
+          <% end %>
+        </div>
+      </nav>
+
+      <script type="text/javascript" src="./app.js"></script>
+
+      <%= yield %>
+
+      <% if request.url.match(/\/posts/) || request.url.match(/\/users/) || request.url.match(/\/records/) %>
+      <footer class="light-green darken-1">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text">便利ツール</h5>
+              <ul>
+                <li><a class="grey-text text-lighten-3" href="https://qiita.com/">Qiita: プログラミング知識の記録・共有サービス</a></li>
+                <li><a class="grey-text text-lighten-3" href="https://boostnote.io/ja/">BOOSTNOTE: コードのメモ帳</a></li>
+                <li><a class="grey-text text-lighten-3" href="https://teratail.com/">teratail: プログラミング質問サイト</a></li>
+                <li><a class="grey-text text-lighten-3" href="https://trello.com/ja/home">trello: タスク管理ツール</a></li>
+              </ul>
+            </div>
+            <div class="col l4 offset-l2 s12">
+              <h5 class="white-text">学習サイト</h5>
+              <ul>
+                <li><a class="grey-text text-lighten-3" href="https://prog-8.com/">Progate: プログラミング初学者向け</a></li>
+                <li><a class="grey-text text-lighten-3" href="https://dotinstall.com/">ドットインストール: 3分動画でマスター</a></li>
+                <li><a class="grey-text text-lighten-3" href="https://www.udemy.com/">Udemy: より実践的な動画学習サイト</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          © 2019 Copyright Text
+          <a class="grey-text text-lighten-4 right" href="#!">Top</a>
+          </div>
+        </div>
+      </footer>
+      <% end %>
+    </div>
+
   </body>
 </html>
