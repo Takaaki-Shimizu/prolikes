@@ -1,0 +1,11 @@
+<div class="contents-box">
+  <div class="contents row back">
+    <% @posts.each do |post| %>
+      <%= render partial: "post", locals: { post: post } %>
+    <% end %>
+    <%= paginate(@posts) %>
+    <div class="search">
+      <%= link_to "ユーザー検索", "/posts/:post_id/users" %>
+    </div>
+  </div>
+</div>

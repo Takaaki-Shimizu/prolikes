@@ -1,0 +1,7 @@
+<%= form_for(@post) do |f| %>
+  <h3>
+    編集する
+  </h3>
+  <%= f.text_area:text %><%= @post.text %>
+  <%= f.submit %>
+<% end %>
