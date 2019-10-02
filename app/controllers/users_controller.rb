@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  def index
+    @search = User.ransack(params[:q])
+    @users = @search.result
+  end
+
   def show
     @user = User.find(params[:id])
     @name = @user.name

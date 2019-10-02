@@ -1,0 +1,11 @@
+<%= search_form_for @search, enforce_utf8: false do |f| %>
+  <%= f.label :name_cont, "ユーザー名"%>
+  <%= f.search_field :name_cont %>
+  <div class="actions"><%= f.submit "検索" %></div>
+<% end %>
+
+<% if request.url.match(/commit/)%>
+  <% @users.each do |user| %>
+    <p><%= link_to "#{ user.name}", "users/#{user.id}" %></p>
+  <% end %>
+<% end %>
