@@ -1,4 +1,5 @@
 # README
+
 1. アプリケーションの概要  
   **名前/機能**  
     Prolikes/プログラミング学習記録アプリ  
@@ -33,3 +34,7 @@
     ユーザー検索機能      : gem 'ransack'  
     ページネーション      : gem 'kaminari'  
     デバッグ             : gem 'pry-rails'  
+    
+1. ER図（gem 'rails-erd'で作成）
+<img width="791" alt="スクリーンショット 2019-10-03 5 24 10" src="https://user-images.githubusercontent.com/50174168/66079928-0ac93f80-e5a0-11e9-8660-753ba3b80b29.png">
+
