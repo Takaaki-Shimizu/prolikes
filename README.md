@@ -24,10 +24,8 @@
   **言語・フレームワーク**  
     ruby 2.5.1  
     Ruby On Rails 5.2.3  
-
   **データベース**  
     MySQL2  
-
   **主要な技術**  
     フロント            : Materialize.css/jQuery/HTML/SCSS  
     ログイン機能         : gem 'devise'  
