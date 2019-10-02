@@ -1,0 +1,4 @@
+<%= form_for @record, url: "/users/#{request.url[28, 1].to_i}/records" do |f| %>
+  <%= f.number_field :day_hour %>
+  <%= f.submit %>
+<% end %>
