@@ -1,0 +1,41 @@
+<div class="card-panel">
+  <span class="blue-text text-darken-2"><h3>About Me</h3></span>
+</div>
+<div class="wrapper1">
+  <div class="about me back">
+    <% if user_signed_in? && current_user.id == request.url[28, 1].to_i %>
+    <li><a href="/users/<%= @user.id %>/records/">Learning Reportへ</a></li>
+    <% end %>
+    <p>名前：<%= @user.name %></p>
+    <p>コンタクト：<%= @user.email %></p>
+    <p>希望の勤務地：<%= @user.place %></p>
+
+    <p>Q1. エンジニアになりたいと思ったきっかけは？</p>
+      A1: <%= @user.trigger %>
+    <p>Q2. 将来どんなことがやりたい？</p>
+      A2: <%= @user.future %>
+    <p>Q3. そのために今何をしている？</p>
+      A3: <%= @user.now %>
+    <li><%= link_to("いいねした投稿一覧", "/users/#{@user.id}/likes") %></li>
+  </div>
+  <div class="wrapper2">
+    <div class="wrapper3">
+      <p><div class="user_image"><%= image_tag  @user.avatar if @user.avatar.attached? %></div></p>
+    </div>
+  </div>
+</div>
+
+<div class="contents-box">
+  <div class="contents row back" >
+    <div class="card-panel">
+      <span class="blue-text text-darken-2"><h4><p><%= @name %>の投稿一覧</p></h4></span>
+    </div>
+    <% @posts.each do |post| %>
+      <%= render partial: "show", locals: { post: post } %>
+    <% end %>
+    <%= paginate(@posts) %>
+    <div class="search">
+      <%= link_to "ユーザー検索", "/posts/:post_id/users" %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+.wrapper1 {
+  display: flex;
+  .about {
+    text-align: center;
+    list-style: none;
+  }
+  .me {
+    margin-left: 200px;
+    color: #ffffff
+  }
+  .wrapper2 {
+    position: relative;
+    margin-left: 100px;
+    .wrapper3 {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      .user_image {
+        width: 260px;
+        height: 260px;
+        overflow: hidden;
+        margin: 0 auto;
+        border-radius: 50%;
+        img {
+          width: 260px;
+        }
+      }
+    }
+  }
+}
