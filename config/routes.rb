@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   resources :posts do
     resources :users
   end
+  resources :users do
+    resources :goals
+  end
   post "likes/:post_id/create" => "likes#create"
   post "likes/:post_id/destroy" => "likes#destroy"
   get "users/:id/likes" => "users#likes"
