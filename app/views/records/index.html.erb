@@ -1,0 +1,37 @@
+<div class="about">
+  <div class="card-panel">
+    <span class="blue-text text-darken-2"><h3>Learning Report</h3></span>
+  </div>
+    <li><a href="/users/<%= request.url[28, 1].to_i %>">About Meに戻る</a></li>
+
+    <p><a href="/users/<%= request.url[28, 1].to_i %>/records/new">今日の学習時間を登録する</a></p>
+    <p>今日の学習時間：
+      <% unless @record == nil %>
+        <%= @record.day_hour %>時間
+      <% else %>
+        0時間
+      <% end %>
+    </p>
+  <% total_study_hour = 0 %>
+  <% @records.each do |record| %>
+    <% total_study_hour += record.day_hour %>
+  <% end %>
+    <p>総学習時間：<%= total_study_hour %>時間</p>
+    <p><a href="/users/<%= request.url[28, 1].to_i %>/goals/new">目標学習時間を登録する</a></p>
+    <% unless @goal == nil %>
+      <p>目標学習時間：<%= @goal.goal_hour %>時間</p>
+    <% else %>
+      <p>目標学習時間：0時間</p>
+    <% end %>
+    <% unless @goal == nil %>
+      <% goal_study_hour = @goal.goal_hour %>
+      <p>目標達成まで後り：<%= goal_study_hour - total_study_hour %>時間</p>
+      <% to_goal_hour = goal_study_hour - total_study_hour %>
+    <% else %>
+    <p>目標達成まで後り：0時間</p>
+    <% end %>
+    <%= link_to "学習時間リセット", "/users/#{request.url[28, 1].to_i}/records/:id", method: :delete %>
+</div>
+<div>
+  <h5 class="white-text"><div class="card-panel teal light-green">夢に向かって頑張ろう！！</div></h5>
+</div>
