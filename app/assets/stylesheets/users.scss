@@ -1,5 +1,11 @@
+.card-panel {
+  text-align: center;
+}
 .wrapper1 {
   display: flex;
+  .back {
+    background-color: #464646;
+  }
   .about {
     text-align: center;
     list-style: none;
@@ -26,5 +32,25 @@
         }
       }
     }
+  }
+}
+.contents-box {
+  width: 100%;
+  background-color: #464646;
+  .contents {
+    margin: 0 auto;
+    width: 800px;
+    .card-panel {
+      text-align: center;
+    }
+    .card {
+      margin: 0 auto;
+      width: 600px;
+    }
+  }
+  .search {
+    margin: 0 auto;
+    width: 800px;
+    height: 50px;
   }
 }
