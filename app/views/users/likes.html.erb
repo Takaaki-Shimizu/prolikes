@@ -1,0 +1,21 @@
+<% @likes.each do |like| %>
+  <% post = Post.find_by(id: like.post_id) %>
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card green">
+        <div class="card-content white-text">
+          <p><%= link_to post.text, "/posts/#{post.id}", class: "post-link" %></p>
+          <p>投稿日時: <%= post.created_at.strftime("%Y/%m/%d %H:%M") %></p>
+        </div>
+        <div class="card-action">
+          <p><a href="/users/<%= post.user_id %>">投稿者：<%= post.user.name %></a></p>
+          <%= link_to '詳細', "/posts/#{post.id}", method: :get %>
+        <% if user_signed_in? && post.user_id == current_user.id %>
+          <%= link_to '編集', "/posts/#{post.id}/edit", method: :get %>
+          <%= link_to '削除', "/posts/#{post.id}", method: :delete %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
