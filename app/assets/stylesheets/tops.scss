@@ -32,10 +32,50 @@
     z-index: 2;
     border: 1px solid black;
     list-style: none;
+    .close-btn {
+      display: block;
+      width: 80px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      cursor: pointer;
+      border: 1px solid black;
+      float: right;
+    }
   }
   .btn-floating {
     position: fixed;
     bottom: 50px;
     right: 50px;
   }
+}
+.body {
+  background-image: url(https://images.pexels.com/photos/1133505/pexels-photo-1133505.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+  z-index: 0;
+}
+
+.body::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  background: inherit;
+  filter: blur(2px);
+  z-index: -1;
+}
+
+.text_against_picture{
+  text-shadow: 0 0 10px #333;
+  color: #ffffff;
+}
+
+.back {
+  background-color: #464646;
 }
