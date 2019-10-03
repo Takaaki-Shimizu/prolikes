@@ -5,5 +5,5 @@ class User < ApplicationRecord
   has_many :records
   has_many :comments
   has_one_attached :avatar
-  validates :name, presence: true
+  validates :name, :email, presence: true
 end
