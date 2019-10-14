@@ -1,0 +1,309 @@
+ /*====================
+スマホを基本設計にする
+ - 〜479px：スマートフォン縦
+ - 480px〜599px：スマートフォン横
+ - 600px〜959px：タブレット
+ - 960px〜1279px：小型PC
+ - 1280px〜：大型PC
+====================*/
+
+//ヘッダー
+.menu-icon {
+  display: none;
+  font-size: 30px;
+  padding-right: 20px;
+  cursor: pointer;
+  float: right;
+}
+.menu-modal-login {
+  display: none;
+  height: 60px;
+  width: 465px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -400x;
+  margin-left: -250px;
+  background-color: #99CC00;
+  z-index: 2;
+  border: 1px solid black;
+  border-radius: 15px;
+  list-style: none;
+}
+.menu-modal-logout {
+  display: none;
+  height: 60px;
+  width: 465px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -400x;
+  margin-left: -250px;
+  background-color: #99CC00;
+  z-index: 2;
+  border: 1px solid black;
+  border-radius: 15px;
+  list-style: none;
+}
+.active {
+  display: block;
+}
+//トップページモーダル
+.modal-screen {
+  display: none;
+  height: 400px;
+  width: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -200px;
+  margin-left: -250px;
+  background-color: #99CC00;
+  z-index: 2;
+  border: 1px solid black;
+  border-radius: 15px;
+  list-style: none;
+  .close-btn {
+    display: block;
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 50%;
+    float: right;
+  }
+}
+//マイページ
+  .back {
+    background-color: #464646;
+  }
+  .about {
+    text-align: center;
+    list-style: none;
+  }
+  .me {
+    color: #ffffff
+  }
+  .user_image {
+    width: 260px;
+    height: 260px;
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 50%;
+    img {
+      width: 260px;
+    }
+  }
+//マイページ ユーザーの投稿一覧
+.contents-box {
+  width: 100%;
+  background-color: #464646;
+  .contents {
+    margin: 0 auto;
+    .card-panel {
+      text-align: center;
+    }
+  }
+  .search {
+    margin: 0 auto;
+    height: 50px;
+  }
+}
+
+
+ /* 〜479px：SP縦
+------------------------------ */
+@media screen and (max-width:479px) {
+  .user-wrapper {
+    display: block;
+    .user_explanation {
+      margin: 0;
+    }
+    .user_image_wrapper {
+      margin: 30px auto 0;
+      .user_image_wrapper2 {
+        .user_image {
+          width: 220px;
+          height: 220px;
+          overflow: hidden;
+          margin: 0 auto;
+          border-radius: 50%;
+          img {
+            width: 220px;
+          }
+        }
+      }
+    }
+  }
+  .modal-screen {
+    height: 310px;
+    width: 300px;
+    margin-top: -155px;
+    margin-left: -150px;
+    font-size: 10px;
+  }
+  .message {
+    font-size: 30px;
+  }
+  #nav-mobile {
+    display: none;
+  }
+  .menu-icon {
+    display: block;
+  }
+  .card {
+    margin: 0 auto;
+    width: 439px;
+  }
+}
+
+/* 480px〜599px：SP横
+------------------------------ */
+@media screen and (min-width:480px) and (max-width:599px) {
+  .user-wrapper {
+    display: block;
+    .user_explanation {
+      margin: 0;
+    }
+    .user_image {
+      overflow: hidden;
+      margin: 50px auto 0;
+      border-radius: 50%;
+    }
+  }
+  .modal-screen {
+    height: 310px;
+    width: 300px;
+    margin-top: -180px;
+    margin-left: -150px;
+    font-size: 10px;
+  }
+  .message {
+    font-size: 30px;
+  }
+  #nav-mobile {
+    display: none;
+  }
+  .menu-icon {
+    display: block;
+  }
+  .card {
+    margin: 0 auto;
+    width: 460px;
+  }
+}
+
+/* 600px〜959px：タブレット
+------------------------------ */
+@media screen and (min-width:600px) and (max-width:959px) {
+  .user-wrapper {
+    display: flex;
+    .user_explanation {
+      margin: 0 auto;
+    }
+    .user_image_wrapper {
+      margin: 50px auto 0;
+      .user_image_wrapper2 {
+        .user_image {
+          width: 260px;
+          height: 260px;
+          overflow: hidden;
+          margin: 0 auto;
+          border-radius: 50%;
+          img {
+            width: 260px;
+          }
+        }
+      }
+    }
+  }
+  #nav-mobile {
+    display: block;
+  }
+  .menu-icon {
+    display: block;
+  }
+  .contents {
+    width: 600px;
+  }
+  .card {
+    margin: 0 auto;
+    width: 560px;
+  }
+}
+
+/* 960px〜1279px：小型PC
+------------------------------ */
+@media screen and (min-width:960px) and (max-width:1279px) {
+  .user-wrapper {
+    display: flex;
+    .user_explanation {
+      margin-left: 200px;
+    }
+    .user_image_wrapper {
+      margin-left: 100px;
+      margin-top: 50px;
+      .user_image_wrapper2 {
+        .user_image {
+          width: 280px;
+          height: 280px;
+          overflow: hidden;
+          margin: 0 auto;
+          border-radius: 50%;
+          img {
+            width: 280px;
+          }
+        }
+      }
+    }
+  }
+  #nav-mobile {
+    display: block;
+  }
+  .contents {
+    width: 800px;
+  }
+  .card {
+    margin: 0 auto;
+    width: 700px;
+  }
+}
+
+/* 1280px〜：大型PC
+------------------------------ */
+@media screen and (min-width:1280px) {
+  .user-wrapper {
+    display: flex;
+    .user_explanation {
+      margin-left: 200px;
+    }
+    .user_image_wrapper {
+      margin-left: 100px;
+      margin-top: 50px;
+      .user_image_wrapper2 {
+        .user_image {
+          width: 300px;
+          height: 300px;
+          overflow: hidden;
+          margin: 0 auto;
+          border-radius: 50%;
+          img {
+            width: 300px;
+          }
+        }
+      }
+    }
+  }
+  #nav-mobile {
+    display: block;
+  }
+  .contents {
+    width: 800px;
+  }
+  .card {
+    margin: 0 auto;
+    width: 900px;
+  }
+}
