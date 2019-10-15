@@ -2,17 +2,6 @@
     <h1 id="app">Plolikes</h1>
     <h1 class="message">Let's like Programming more!!<br>Enjoy Prolikes!!!<br>プログラミングを学習する人<br>全てを応援します</h1>
 
-  <script>
-    $('#app').hover(
-      function() { //カーソルが「Plolikes」に乗った時に
-        $('.message').fadeIn(1000); //メッセージが1秒でフェードインする
-      },
-      function() { //カーソルが「Plolikes」から離れた時に
-        $('.message').fadeOut(); //一瞬でフェードアウトする
-      }
-    );
-  </script>
-
   <a class="modal-btn">アプリの説明</a>
   <div class="modal-screen">
     <p>[ 基本機能 ]</p>
@@ -30,15 +19,6 @@
       <li>時間の記録（本日の学習時間&目標学習時間）</li>
     <a class="close-btn">閉じる</a>
   </div>
-
-  <script>
-    $(".modal-btn").click(function() {
-      $(".modal-screen").fadeIn(800);
-    });
-    $(".close-btn").click(function() {
-      $(".modal-screen").fadeOut(400);
-    });
-  </script>
 
   <a href="/posts" class="btn-floating btn-large cyan pulse"><i class="material-icons">Push</i></a>
 </div>
