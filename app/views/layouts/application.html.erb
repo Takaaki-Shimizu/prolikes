@@ -34,10 +34,11 @@
           </div>
           <% else %>
           <div class="menu-modal-logout">
-          <ul class="hide-menu">
-            <li><%= link_to 'ログイン', new_user_session_path %></li>
-            <li><%= link_to '新規登録', new_user_registration_path %></li>
-          </ul>
+            <ul class="hide-menu">
+              <li><%= link_to 'ログイン', new_user_session_path %></li>
+              <li><%= link_to '新規登録', new_user_registration_path %></li>
+            </ul>
+          </div>
           <% end %>
 
           <% if user_signed_in? %>

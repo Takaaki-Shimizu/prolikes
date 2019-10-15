@@ -1,13 +1,14 @@
 class RecordsController < ApplicationController
 
   def index
-    if Record.where(user_id: current_user.id) == nil
+    @user = User.find(params[:user_id])
+    if Record.where(user_id: params[:user_id]) == nil
       @record = nil
     else
-      @record = Record.where(user_id: current_user.id).last
+      @record = Record.where(user_id: params[:user_id]).last
     end
-    @records = Record.where(user_id: current_user.id)
-    @goal = Goal.where(user_id: current_user.id).last
+    @records = Record.where(user_id: params[:user_id])
+    @goal = Goal.where(user_id: params[:user_id]).last
   end
 
   def new
@@ -15,12 +16,13 @@ class RecordsController < ApplicationController
   end
 
   def create
+    @user = User.find(params[:user_id])
     Record.create(record_params)
-    redirect_to "/users/#{request.url[28, 1].to_i}/records"
+    redirect_to "/users/#{@user.id}/records"
   end
 
   def destroy
-    records = Record.where(user_id: current_user.id)
+    records = Record.where(user_id: params[:user_id])
     records.destroy_all
     redirect_to action: :index
   end

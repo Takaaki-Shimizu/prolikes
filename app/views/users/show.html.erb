@@ -4,9 +4,7 @@
 <div class="user-wrapper">
   <div class="user_explanation">
     <div class="about me back">
-      <% if user_signed_in? && current_user.id == request.url[28, 1].to_i %>
       <li><a href="/users/<%= @user.id %>/records/">Learning Reportへ</a></li>
-      <% end %>
       <p>名前：<%= @user.name %></p>
       <p>コンタクト：<%= @user.email %></p>
       <p>希望の勤務地：<%= @user.place %></p>
