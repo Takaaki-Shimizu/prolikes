@@ -1,9 +1,9 @@
 class GoalsController < ApplicationController
   def index
-    if Goal.where(user_id: current_user.id) == nil
+    if Goal.where(user_id: params[:user_id]) == nil
       @goal = nil
     else
-      @goal = Goal.where(user_id: current_user.id).last
+      @goal = Goal.where(user_id: params[:user_id]).last
     end
   end
 
@@ -12,8 +12,9 @@ class GoalsController < ApplicationController
   end
 
   def create
+    @user = User.find(params[:user_id])
     Goal.create(goal_params)
-    redirect_to "/users/#{request.url[28, 1].to_i}/records"
+    redirect_to "/users/#{@user.id}/records"
   end
 
   def edit
